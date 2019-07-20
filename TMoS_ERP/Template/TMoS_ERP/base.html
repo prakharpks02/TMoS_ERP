@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TMoS - {% block Title %}{%endblock%}</title>
+</head>
+<body>
+    <div id="header">
+        <img src="#" class="dropbutton">
+        <div class="dropdown-content">
+            <a href="#">Profile</a>
+            <a href="#">Company Details</a>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+    <div id="navpanel">
+        <img src="#" id="dropburger">
+        <div>
+            
+        </div>
+
+    </div>
+    <div id="mainbody">
+        {%block main%}{%endblock%}
+    </div>
+    
+</body>
+</html>
