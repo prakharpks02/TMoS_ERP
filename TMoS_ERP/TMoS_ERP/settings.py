@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'TMoS_ERP.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Template/base/',],
+        'DIRS': ['Template/TMoS_ERP/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,4 +125,4 @@ STATICFILES_DIRS = (
 )
 
 LOGIN_REDIRECT_URL = '/home/'
-LOGIN_URL = 'login/'
+LOGIN_URL = '/login/'

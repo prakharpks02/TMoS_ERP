@@ -20,7 +20,8 @@ from home import views as home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', auth_views.LoginView, {'template_name': 'login.html'}, name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name = 'login.html'), name='login'),
     path('logout/', auth_views.LogoutView, name='logout'),
-    path('home/', home_view.home, name='home')
+    path('home/', home_view.home, name='home'),
+    path('', home_view.home, name='home'),
 ]
