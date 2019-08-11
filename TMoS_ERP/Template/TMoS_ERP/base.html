@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     {% load static from static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base_file.css' %}">
+    <link rel="shortcut icon" type="image/jpg" href='/static/img/logo.jpg'>
+    <link rel="stylesheet" type="text/css" href='/static/css/base_file.css'>
     <!--<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.8.3.min.js"></script>-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,9 @@
         <div class="dropdown">
             <img src="{% static 'img/man-user.png' %}" alt="Dropdown Menu" class="dropbtn">
             <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                <a href="#">Personal Details</a>
+                <a href="#">Company Details</a>
+                <a href="/logout/">Logout</a>
             </div>
         </div>
     </div>
@@ -24,12 +25,21 @@
     
     
     <div id="navpanel">
-        <img src="{% static 'img/menu.png' %}" id="menu_button">
-        <div>
-            <a class="">Home</a>
-            <a>Orders</a>
+        <div id="details">
+            <img src='/static/img/logo.jpg' id="logo">
+            <a href="#">Ramesh Singh{%block Name%}{%endblock%}</a>
         </div>
-
+        <div id="navpanel_details">
+            <a class="single_btn_nav" href="#">Home</a>
+            <a id="orders_nav" href="#">Orders</a>
+            <div id="orders_hover">
+                <a class="orders_nav_inside" href="#">Place Order</a>
+                <a class="orders_nav_inside" href="#">All Orders</a>
+            </div>
+            <a class="single_btn_nav" href="#">Vehicles</a>
+            <a class="single_btn_nav" href="#">Drivers</a>
+            <a class="single_btn_nav" href="#">Customers</a>
+        </div>
     </div>
     <div id="mainbody">
         {%block main%}{%endblock%}
