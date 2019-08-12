@@ -27,18 +27,20 @@
     <div id="navpanel">
         <div id="details">
             <img src='/static/img/logo.jpg' id="logo">
-            <a href="#">Ramesh Singh{%block Name%}{%endblock%}</a>
+            <a href="#" id="profile_name">TMoS Tech Private Limited{%block Name%}{%endblock%}</a>
         </div>
         <div id="navpanel_details">
-            <a class="single_btn_nav" href="#">Home</a>
-            <a id="orders_nav" href="#">Orders</a>
-            <div id="orders_hover">
-                <a class="orders_nav_inside" href="#">Place Order</a>
-                <a class="orders_nav_inside" href="#">All Orders</a>
-            </div>
-            <a class="single_btn_nav" href="#">Vehicles</a>
-            <a class="single_btn_nav" href="#">Drivers</a>
-            <a class="single_btn_nav" href="#">Customers</a>
+            <ul id="navpanel_list">
+                <li><a class="single_btn_nav" href="#">Home</a></li>
+                <li><div id="orders_hover_orders"><a id="orders_nav" href="#">Orders</a></div></li>
+                <div id="orders_hover">
+                    <li><a class="orders_nav_inside" href="#">Place Order</a></li>
+                    <li><a class="orders_nav_inside" href="#">All Orders</a></li>
+                </div>
+                <li><a class="single_btn_nav" href="#">Vehicles</a></li>
+                <li><a class="single_btn_nav" href="#">Drivers</a></li>
+                <li><a class="single_btn_nav" href="#">Customers</a></li>
+            </ul>
         </div>
     </div>
     <div id="mainbody">
