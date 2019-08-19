@@ -1,16 +1,51 @@
 {%extends 'base.html'%}
 
+{% block css_json_file %}<link rel="stylesheet" type="text/css" href='/static/css/place_order.css'>{%endblock%}
+
 {%block  title%}Place Order{%endblock%}
 
-{%block name%}{{username}}{%endblock%}
-
 {%block main%}
+<h1 id="heading">Please Place Your Order Here</h1>
 <div id="place_order_details">
+    <h4 class="sub_heading">Order Details</h4>
     <form method="POST">
         {%csrf_token%}
-        <div class="form_label">{{form.}}</div>
+        <div class="form_label">{{form_order.source.label}}</div>
+        <div class="form_field">{{form_order.source}}</div>
+        <div class="form_help">{{form_order.source.help_text}}</div>
+        <div class="form_label">{{form_order.destination.label}}</div>
+        <div class="form_field">{{form_order.destination}}</div>
+        <div class="form_help">{{form_order.destination.help_text}}</div>
+        <div class="form_label">{{form_order.weight.label}}</div>
+        <div class="form_field">{{form_order.weight}}</div>
+        <div class="form_help">{{form_order.weight.help_text}}</div>
+        <div class="form_label">{{form_order.order_type.label}}</div>
+        <div class="form_field">{{form_order.order_type}}</div>
+        <div class="form_help">{{form_order.order_type.help_text}}</div>
+        <div class="form_label">{{form_order.source.label}}</div>
+        <div class="form_field">{{form_order.source}}</div>
+        <div class="form_help">{{form_order.source.help_text}}</div>
+        <div class="form_label">{{form_order.source.label}}</div>
+        <div class="form_field">{{form_order.source}}</div>
+        <div class="form_help">{{form_order.source.help_text}}</div>
     </form>
 </div>
+
+<div id="customer_details">
+        <h4 class="sub_heading">Customer Details</h4>
+        <form method="POST">
+            {%csrf_token%}
+            <div class="form_label">{{form_customer.name.label}}</div>
+            <div class="form_field">{{form_customer.name}}</div>
+            <div class="form_help">{{form_customer.name.help_text}}</div>
+            <div class="form_label">{{form_customer.email_id.label}}</div>
+            <div class="form_field">{{form_customer.email_id}}</div>
+            <div class="form_help">{{form_customer.email_id.help_text}}</div>
+            <div class="form_label">{{form_order.mobile_no.label}}</div>
+            <div class="form_field">{{form_order.mobile_no}}</div>
+            <div class="form_help">{{form_order.mobile_no.help_text}}</div>
+        </form>
+    </div>
 
 
 {%endblock%}
