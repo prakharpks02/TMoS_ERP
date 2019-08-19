@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{% block css_json_file %}<link rel="stylesheet" type="text/css" href='/static/css/order_details.css'>{%endblock%}
+
+{%block  title%}Driver List{%endblock%}
+
+{%block main%}
+    <h1 id="heading">Driver list</h1>
+    
+    <script src={% static "js/driver_list.js" %}></script>
+    <noscript>Sorry, your browser does not support JavaScript!</noscript>
+
+    <table id="list_table">
+        <tr id="list_table_heading">
+            <th>Serial Number</th>
+            <th>Driver ID</th>
+            <th>Driver Name</th>
+            <th>Contact Number</th>
+            <th>Rating</th>
+            <th>Ranking</th>
+            
+        </tr>
+        
+    </table>
+
+    <table id="table_no">
+        <tr id="table_no_tr">
+            <td id="table_no_text">Page Number -</td>
+            {% for i in list_no_of_table %}
+            <td class="table_no_button_td"><button onclick="table_func({{i}})" id="table_no_button">{{i}}</button></td>
+            {% endfor %}
+        </tr>
+    </table>
+
+{%endblock%}
