@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+{% block css_json_file %}<link rel="stylesheet" type="text/css" href='/static/css/order_details.css'>{%endblock%}
+
+{%block  title%}Vehicle Details{%endblock%}
+
+{%block main%}
+    <h1 id="heading">Vehicle Details - {{vehicle_details_id}}</h1>
+
+    <script src={% static "js/vehicle_detail.js" %}></script>
+    <noscript>Sorry, your browser does not support JavaScript! Please use updated Chrome, Firefox, Opera, Safari or Edge browser</noscript>
+
+    <div id="status">
+        Current Status : {{vehicle_status_now}}
+    </div>
+    <div id="details">
+        Vehicle Number : {{vehicle_details_id}}
+        Vehicle VIN Number : {{vehicle_details_vin}}
+        Vehicle Model : {{vehicle_details_model}}
+        Vehicle Capacity : {{vehicle_details_capacity}}
+        Vehicle Year of Manufacture : {{vehicle_year_of_man}}
+    </div>
+    <div id="record">
+        Total Distance Covered : {{vehicle_record_distance}}
+        Total Servicing Runs : {{vehicle_record_service}}
+    </div>
+{%endblock%}
