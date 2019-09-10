@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     {% load staticfiles %}
-    <link rel="shortcut icon" type="image/jpg" src="{% static 'img/logo.jpg' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base_file.css' %}">
+    <link rel="shortcut icon" type="image/jpg" src="{% staticfiles 'img/logo.jpg' %}">
+    <link rel="stylesheet" type="text/css" href="{% staticfiles 'css/base_file.css' %}">
     {% block css_json_file %}{%endblock%}
     <!--<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.8.3.min.js"></script>-->
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
 <body>
     <div id="header">
         <div class="dropdown">
-            <img src="{% static 'img/man-user.png' %}" alt="Dropdown Menu" class="dropbtn">
+            <img src="{% staticfiles 'img/man-user.png' %}" alt="Dropdown Menu" class="dropbtn">
             <div class="dropdown-content">
                 <a href="#">Personal Details</a>
                 <a href="#">Company Details Yo</a>
@@ -27,7 +27,7 @@
     
     <div id="navpanel">
         <div id="details">
-            <img src="{% static 'img/logo.jpg' %}" id="logo">
+            <img src="{% staticfiles 'img/logo.jpg' %}" id="logo">
             <a href="#" id="profile_name">{{username}}</a>
         </div>
         <div id="navpanel_details">
