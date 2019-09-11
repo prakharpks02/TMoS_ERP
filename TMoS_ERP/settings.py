@@ -25,7 +25,7 @@ SECRET_KEY = 'vnd=f!!2@4-g-!5cuiu2a8_6%e0c*zve69hvck#nys70l235*%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tmostech-1.azurewebsites.net', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['tmostech-1.azurewebsites.net', 'localhost', '127.0.0.1', 'tmosweb.com']
 
 
 # Application definition
