@@ -16,18 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from django.conf.urls import url
+from django.conf.urls import url, include
 from home import views as home_view
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
-from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name = 'login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name = 'logout.html'), name='logout'),
-    path('home/', home_view.home, name='home'),
+    path('home/', home_view.home, name='home'), #This URL is absolute, not including urls page in home app
     path('', home_view.home, name='home'),
+    path('order/', include('orders.urls')),
+    path('vehicles/', include('vehicles.urls')),
+    path('drivers/', include('drivers.urls')),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ] 

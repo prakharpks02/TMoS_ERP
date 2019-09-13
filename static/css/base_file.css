@@ -125,7 +125,8 @@
 
 #mainbody {
   display: block;
-  position: fixed;
+  position: absolute;
+  overflow: auto;
   width: 83%;
   height: 100%;
   right: 0;

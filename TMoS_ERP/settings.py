@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',
+    'home', 'orders', 'drivers', 'vehicles',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +127,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 LOGIN_REDIRECT_URL = '/home/'
 LOGIN_URL = '/login/'
+api_url = 'https://mw4my5pu5m.execute-api.ap-south-1.amazonaws.com/dev/'
