@@ -27,11 +27,27 @@
 
         function table_func(i) 
         {
-            var data_params = {n:i};
-            $.get(list_url, data_params, function(data, status){
-                var dict_table_new = data['order_list'];
-                console.log(dict_table_new);
-            });
+            list_url_id = list_url + '?n=' + i.toString();
+            /*$.ajax({
+                type: 'GET',
+                url: list_url_id,
+                dataType: 'jsonp',
+                cors: true ,
+                contentType:'application/json',
+                secure: true,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Basic " + btoa(""));
+                },
+                success: function(data){
+                    console.log('success', data);
+                    var dict_table = data['order_list'];
+                    console.log(dict_table_new);
+                }
+            });*/
+            
             var table = document.getElementById("list_table");
             
             //This below code deletes the row that is already being seen on the screen to make the table empty, so new rows are filled. Uses the length variable previous value, thus this function's placing is important.
@@ -40,7 +56,7 @@
                 var row_del = table.deleteRow(length-d);
             };
             
-            if((i+1) == no_of_table){length = list_len_last;} else{length = 20;}; //Preperation for the different number of rows for last page
+            if((i) == no_of_table){length = list_len_last;} else{length = 20;}; //Preperation for the different number of rows for last page
 
             for(var j=0; j < length; j++)
             {
@@ -54,7 +70,7 @@
                         //Adding Hyperlink in each cell having order id
                         var link = document.createElement("a");
                         link.setAttribute("href", detail_url + '?order_id=' + dict_table[j][col_array[1]] )
-                        cell[k].innerHTML = dict_table[j][col_array[k]];
+                        link.innerHTML = dict_table[j][col_array[k]];
                         cell[k].appendChild(link);
                     }
                     else{
@@ -102,7 +118,7 @@
                         //Adding Hyperlink in each cell having order id
                         var link = document.createElement("a");
                         link.setAttribute("href", detail_url + '?order_id=' + dict_table[j][col_array[1]] )
-                        cell[k].innerHTML = dict_table[j][col_array[k]];
+                        link.innerHTML = dict_table[j][col_array[k]];
                         cell[k].appendChild(link);
                     }
                     else{

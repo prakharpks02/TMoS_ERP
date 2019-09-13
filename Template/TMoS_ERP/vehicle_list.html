@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block css_json_file %}<link rel="stylesheet" type="text/css" href='{% static "css/vehicle_list.css" %}'>{%endblock%}
+{% block css_json_file %}<link rel="stylesheet" type="text/css" href='{% static "css/order_list.css" %}'>{%endblock%}
 
 {%block  title%}Vehicle List{%endblock%}
 
@@ -25,11 +25,6 @@
 
         function table_func(i) 
         {
-            var data = {n:i};
-            $.get(list_url, data, function(data, status){
-                var dict_table = data['vehicle_list'];
-            });
-            var table = document.getElementById("list_table");
             
             //This below code deletes the row that is already being seen on the screen to make the table empty, so new rows are filled. Uses the length variable previous value, thus this function's placing is important.
             for(var d = 0; d < (length); d++)
@@ -37,9 +32,9 @@
                 var row_del = table.deleteRow(length-d);
             };
             
-            if(i == no_of_table){length = list_len_last;} else{length = 20;}; //Preperation for the different number of rows for last page
+            if(i == no_of_table){length = (list_len_last+20*(i-1))/i;} else{length = 20;}; //Preperation for the different number of rows for last page
 
-            for(var j=0; j < length; j++)
+            for(var j=20*(i-1); j < length*i; j++)
             {
                 var row = table.insertRow(-1);
                 row.className = 'list_table_row'
@@ -50,8 +45,8 @@
                     if(k==1){
                         //Adding Hyperlink in each cell having order id
                         var link = document.createElement("a");
-                        link.setAttribute("href", detail_url + '?order_id=' + dict_table[j][col_array[1]] )
-                        cell[k].innerHTML = dict_table[j][col_array[k]];
+                        link.setAttribute("href", detail_url + '?driver_id=' + dict_table[j][col_array[1]] )
+                        link.innerHTML = dict_table[j][col_array[k]];
                         cell[k].appendChild(link);
                     }
                     else{
@@ -117,23 +112,13 @@
     <noscript>Sorry, your browser does not support JavaScript! Please use updated Chrome, Firefox, Opera, Safari or Edge browser</noscript>
 
     <table id="list_table">
-        <!--<tr id="list_table_heading">
-            <th>Serial Number</th>
-            <th>Order ID</th>
-            <th>Status</th>
-            <th>Date of Delivery</th>
-            <th>Estimated Time of Delivery</th>
-            <th>Region</th>
-            <th>Vehicle Number</th>
-            <th>Driver</th>
-        </tr>-->
         
     </table>
 
     <table id="table_no">
         <tr id="table_no_tr">
             <td id="table_no_text">Page Number -</td>
-            {% for i in no_of_table|make_list %}
+            {% for i in table_array %}
             <td class="table_no_button_td"><button onclick="table_func({{i}})" id="table_no_button">{{i}}</button></td>
             {% endfor %}
         </tr>

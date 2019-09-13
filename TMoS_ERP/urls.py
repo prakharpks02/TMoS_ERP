@@ -31,5 +31,6 @@ urlpatterns = [
     path('order/', include('orders.urls')),
     path('vehicles/', include('vehicles.urls')),
     path('drivers/', include('drivers.urls')),
+    path('user/', include('user_profile.urls')),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ] 

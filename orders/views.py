@@ -21,7 +21,7 @@ def list(request):
     table_array = []
 
     for i in range(no_of_table):
-        table_array.append(i)
+        table_array.append(i+1)
 
     col_array = []
     for key in temp_dict:
